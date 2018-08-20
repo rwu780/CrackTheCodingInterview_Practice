@@ -25,3 +25,5 @@ Time is not the only thing that matters in an algorithm. We might also care abou
 
 Space complexity is a parallel concept to time complexity.
 
+### Rate of Increase
+A final way to approach the runtime is to think about how the runtime changes as n gets bigger. After all, this is exactly what big O time means
