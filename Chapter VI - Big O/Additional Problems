@@ -1,0 +1,81 @@
+VI.1
+
+int product(int a, int b){
+	int sum = 0;
+	for (int i = 0; i < b; i++){
+		sum += a;
+	}
+	return sum;
+}
+
+O(b)
+
+VI.2
+
+int power(int a, int b){
+	if (b < 0){
+		return 0;
+	}
+	else if (b == 0){
+		return 1;
+	} else {
+		return a * power(a, b - 1);
+	}
+}
+
+O(b)
+
+VI.3
+
+int mod(int a, int b){
+	if (b <= 0){
+		return -1
+	}
+	int div = a / b;
+	return a - div * b
+}
+
+O(1)
+
+VI.4
+
+O(a/b)
+
+VI.5
+
+O(log N)
+
+VI.6
+
+O(sqrt(N))
+
+VI.7
+
+O(N)
+
+VI.8
+
+O(N)
+
+VI.9
+O(n^2)
+
+VI.10
+O(log N)
+
+VI.11
+
+isInOrder O(k)
+
+printSortString O(26^k) 
+
+O(k 26^k)
+
+VI.12
+
+mergesort(b) O(b log b)
+binarySearch O(log b)
+
+O(b log b + a(log b))
+
+
