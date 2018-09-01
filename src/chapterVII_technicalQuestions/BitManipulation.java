@@ -1,3 +1,5 @@
+package chapterVII_technicalQuestions;
+
 import java.util.Random;
 
 public class BitManipulation {
@@ -42,7 +44,5 @@ public class BitManipulation {
 		}
 		
 		System.out.println(repeated);
-		
-		
 	}
 }
