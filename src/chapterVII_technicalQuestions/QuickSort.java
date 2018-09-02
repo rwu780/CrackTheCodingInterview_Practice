@@ -8,7 +8,7 @@ public class QuickSort {
 		sortArray(array, 0, array.length-1);
 	}
 	
-	public void sortArray(int[] array, int low, int high) {
+	private void sortArray(int[] array, int low, int high) {
 		if(low < high) {
 			int pivot = partition(array, low, high);
 			sortArray(array, low, pivot - 1);
@@ -18,18 +18,18 @@ public class QuickSort {
 	
 	private int partition(int[] array, int low, int high) {
 		int pivot = array[high];
-		int lessThanPivotIndex = low;
+		int pivotIndex = low;
 		
 		for(int i = low; i < high; i ++) {
 			if(array[i] <= pivot) {
-				swap(array, lessThanPivotIndex, i);
-				lessThanPivotIndex += 1;
+				swap(array, pivotIndex, i);
+				pivotIndex += 1;
 			}
 		}
 				
-		swap(array, lessThanPivotIndex, high);
+		swap(array, pivotIndex, high);
 		
-		return lessThanPivotIndex;
+		return pivotIndex;
 	}
 	
 	public void swap(int[] array, int index1, int index2) {
