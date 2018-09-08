@@ -1,6 +1,5 @@
 package chapterVII_technicalQuestions;
 
-import java.util.Enumeration;
 import java.util.Hashtable;
 
 public class HashTables<T, E> {
