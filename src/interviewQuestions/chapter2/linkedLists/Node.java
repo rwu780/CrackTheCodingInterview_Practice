@@ -20,6 +20,21 @@ class Node<T> {
 		this.value = value;
 	}
 	
+	public void printNode(){
+		Node<T> head = this;
+		while(head != null){
+			if(head.getNext() == null){
+				// Handle Last Value
+				System.out.println(head.getValue());
+			}
+			else{
+				// Handle intermediate Values
+				System.out.print(head.getValue() + " -> ");
+			}
+			head = head.getNext();
+		}
+	}
+	
 	
 	
 }
