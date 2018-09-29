@@ -15,13 +15,44 @@ public class LoopDetection {
 	}
 	
 	public boolean loopDetectionWithBuffer(Node<Integer> head){
-		
+		hashmap.clear();
 		while(head != null){
 			if(hashmap.containsKey(head.getValue())){
 				return true;
 			}
+			else {
+				hashmap.put(head.getValue(), 1);
+			}
 			head = head.getNext();
 		}
+		return false;
+	}
+	
+	public boolean loopDetectionWithoutBuffer(Node<Integer> head) {
+		
+		Node<Integer> fastRunner = head;
+		Node<Integer> slowRunner = head;
+		
+		while(fastRunner.getNext() != null) {
+			
+			if(fastRunner.getNext().getNext() != null) {
+				fastRunner = fastRunner.getNext().getNext();
+				slowRunner = slowRunner.getNext();
+				
+				System.out.println("Fast Runner: " + fastRunner.getValue());
+				System.out.println("Slow Runner: " + slowRunner.getValue());
+				
+				if(fastRunner.getValue() == slowRunner.getValue()) {
+					return true;
+				}
+			}
+			else {
+				return false;
+			}
+			
+			
+		}
+		
 		return false;
 	}
 	
@@ -33,14 +64,25 @@ public class LoopDetection {
 		head.setNext(next);
 		Random ran = new Random();
 		
-		for (int i = 2; i < 10; i++) {
-			Node<Integer> newNode = new Node<Integer>(ran.nextInt(10));
+		Node<Integer> loopNode = null;
+		boolean loop = false;
+		int length = ran.nextInt(10);
+		
+		for (int i = 2; i < length; i++) {
+			Node<Integer> newNode = new Node<Integer>(i);
 			next.setNext(newNode);
 			next = next.getNext();
+			if(ran.nextBoolean() && !loop) {
+				loopNode = newNode;
+				loop = true;
+			}
 		}
-		head.printNode();
-		System.out.println("Loop Detection: " + lp.loopDetectionWithBuffer(head));
-//		head.printNode();
+		if(ran.nextBoolean()) {
+			next.setNext(loopNode);
+		}
+		head.printLoopNode();
+		System.out.println("Loop Detection with buffer: " + lp.loopDetectionWithBuffer(head));
+		System.out.println("Loop Detection without buffer: " + lp.loopDetectionWithoutBuffer(head));
 	}
 	
 	
